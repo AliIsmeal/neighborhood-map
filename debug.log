@@ -1,0 +1,15 @@
+[0911/132240.367:WARNING:minidump_to_upload_parameters.cc(66)] duplicate annotation name plat, discarding value Win64
+[0911/132240.386:WARNING:minidump_to_upload_parameters.cc(66)] duplicate annotation name prod, discarding value OperaDesktop
+[0911/132240.386:WARNING:minidump_to_upload_parameters.cc(66)] duplicate annotation name ver, discarding value 55.0.2994.44
+[0911/132240.386:WARNING:minidump_to_upload_parameters.cc(66)] duplicate annotation name channel, discarding value Stable
+[0911/132240.386:WARNING:minidump_to_upload_parameters.cc(66)] duplicate annotation name ptype, discarding value gpu-process
+[0911/132441.840:WARNING:minidump_to_upload_parameters.cc(66)] duplicate annotation name plat, discarding value Win64
+[0911/132441.911:WARNING:minidump_to_upload_parameters.cc(66)] duplicate annotation name prod, discarding value OperaDesktop
+[0911/132441.911:WARNING:minidump_to_upload_parameters.cc(66)] duplicate annotation name ver, discarding value 55.0.2994.44
+[0911/132441.911:WARNING:minidump_to_upload_parameters.cc(66)] duplicate annotation name channel, discarding value Stable
+[0911/132441.911:WARNING:minidump_to_upload_parameters.cc(66)] duplicate annotation name ptype, discarding value gpu-process
+[0911/132522.193:WARNING:minidump_to_upload_parameters.cc(66)] duplicate annotation name plat, discarding value Win64
+[0911/132522.193:WARNING:minidump_to_upload_parameters.cc(66)] duplicate annotation name prod, discarding value OperaDesktop
+[0911/132522.193:WARNING:minidump_to_upload_parameters.cc(66)] duplicate annotation name ver, discarding value 55.0.2994.44
+[0911/132522.193:WARNING:minidump_to_upload_parameters.cc(66)] duplicate annotation name channel, discarding value Stable
+[0911/132522.193:WARNING:minidump_to_upload_parameters.cc(66)] duplicate annotation name ptype, discarding value gpu-process

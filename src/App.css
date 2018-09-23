@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #160b06;
+}
+
+.header {
+  overflow: hidden;
+  background: linear-gradient(to bottom, #0066ff 0%, #993300 100%);
+  padding: 5px 5px;
+  text-align: center;
+}
+
+.list-restaurant {
+  margin: 0;
+  padding-top: 5px;
+  max-width: 20%;
+  border-top: 5px solid #361809;
+}
+
+.rest-name p {
+  color: white;
+  margin-left: 10px;
+
+  font-size: 0.85em;
+}
+
+.rest-name p:hover {
+  color: #993300;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, #0066ff 0%, #993300 100%);
+  color: white;
+  text-align: center;
+}
+.search {
+  margin: 10px;
+}
+.search-locations {
+  position: relative;
+  padding: 10px 10px;
+  width: 100%;
+
+  border: 5px solid #993300;
+
+  z-index: 10;
+}
+
+.list {
+  list-style-type: none;
+  margin: 0;
+  background-color: black;
+  padding: 0;
+  height: 100%;
+}
+
+.list li {
+  /* padding: 1px 5px; */
+  cursor: pointer;
+
+  border: 1px solid #160b06;
+}
+
+.infow-window {
+  list-style-type: none;
+}
+.infow-window li {
+  margin: 10px;
+  font-size: 1em;
+}
+
+.map {
+  position: relative;
+
+  float: right;
+  width: 80%;
+  height: 100vh;
+  border: 5px solid black;
+  border-left: 5px solid #993300;
+}
+@media only screen and (max-width: 800px) {
+  body {
+    background-color: white;
+  }
+  .App {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    margin: 0;
+  }
+
+  .map {
+    width: 100%;
+    height: 50vh;
+    margin-bottom:0;
+  }
+
+
+  .list-restaurant {
+    position: relative;
+    /* top: 80px; */
+    z-index: 20;
+    margin: 0;
+    max-width: 100%;
+    border-top: 2px solid #361809;
+    color: black;
+   
+    background-color:black}
+  .list{
+    background-color: rgba(8, 0, 0, 0.089);
+  }
+.infow-window li img {
+ width:200px;
+ height: 100px;
+ 
+}
+.infow-window li {
+ margin-left: 0px;
+}
+  
+}
