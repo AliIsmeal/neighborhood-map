@@ -14,12 +14,12 @@ class MapContainer extends Component {
               <Marker
                 position={mark.latlng}
                 animation={
-                  infowIndex === index &&
-                  window.google.maps.Animation.BOUNCE
+                  infowIndex === index && window.google.maps.Animation.BOUNCE
                 }
                 key={index}
                 title={mark.name}
                 onClick={() => {
+                  //onClick showInfow will be called in App.js
                   showInfow(index, mark.latlng);
                 }}
               >
@@ -35,7 +35,7 @@ class MapContainer extends Component {
                         </li>
                         <li>
                           <img
-                            //couldn't load images from four square,I used https://picsum.photos/300/150?image=431 to get an image of restaurnt 
+                            //couldn't load images from four square,I used https://picsum.photos/300/150?image=431 to get an image of restaurnt
                             src="https://picsum.photos/300/150?image=431"
                             alt="Restaurant-Image"
                           />
@@ -59,9 +59,7 @@ class MapContainer extends Component {
     return (
       <div role="application" aria-label="neighborhood application">
         <MapContainer
-          containerElement={
-            <div className="map" />
-            }
+          containerElement={<div className="map" />}
           mapElement={<div style={{ height: `100%` }} />}
         />
       </div>
