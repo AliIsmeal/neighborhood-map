@@ -1,14 +1,11 @@
 import React from "react";
-
 import MapContainer from "./Map";
 import Header from "./Header";
 import Footer from "./Footer";
 import ListOfPlaces from "./ListOfPlaces";
-
 import LocationsAPI, { getAll } from "./LocationsAPI";
 import escapeRegExp from "escape-string-regexp";
 import sortBy from "sort-by";
-
 import "./index.css";
 import "./App.css";
 
@@ -27,10 +24,8 @@ class App extends React.Component {
   };
 
   showInfow = (index,latlng) => {
-   
     this.setState({ infowIndex: index ,
     markerCenter:latlng});
-    
     };
 
   filter = query => {
