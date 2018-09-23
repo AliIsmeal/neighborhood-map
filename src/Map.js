@@ -14,7 +14,8 @@ class MapContainer extends Component {
               <Marker
                 position={mark.latlng}
                 animation={
-                  infowIndex === index && window.google.maps.Animation.BOUNCE
+                  infowIndex === index &&
+                  window.google.maps.Animation.BOUNCE
                 }
                 key={index}
                 title={mark.name}
@@ -34,6 +35,7 @@ class MapContainer extends Component {
                         </li>
                         <li>
                           <img
+                            //couldn't load images from four square,I used https://picsum.photos/300/150?image=431 to get an image of restaurnt 
                             src="https://picsum.photos/300/150?image=431"
                             alt="Restaurant-Image"
                           />

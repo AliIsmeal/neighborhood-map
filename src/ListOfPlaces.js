@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 
 class ListOfPlaces extends Component {
-  //Reminder need to change it to statelesss function
-
   render() {
     const { locationsName, filter, query, showInfow } = this.props;
 
@@ -16,6 +14,7 @@ class ListOfPlaces extends Component {
             role="textbox"
             aria-label="enter restaurant name "
             value={query}
+            //when the user enter a restaurant name filter method will be called in  App componant
             onChange={event => filter(event.target.value)}
           />
         </div>
