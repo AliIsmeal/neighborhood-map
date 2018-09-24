@@ -30,7 +30,7 @@ All data API's used in the application should load asynchronously, and errors sh
 3. $ npm start
 4. visit the site: http://localhost:300
 
-### Offline-First Considerations
+## Offline-First Considerations
 
 1.  Service workers [require HTTPS](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers#you_need_https),
     although to facilitate local testing, that policy
