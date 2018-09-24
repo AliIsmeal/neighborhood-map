@@ -61,9 +61,11 @@ class App extends React.Component {
       if (res === undefined) {
         //if Failed to fetch third party ,error message on map screen will be displayed
         document.getElementById("LoadError").innerHTML =
-          "<h2>Error:Failed to fetch</h2>";
+        "<h2>Error:Failed to fetch</h2>";
       } else if (res) {
         document.getElementById("LoadError").style.display = "none";
+        //from the response exclude id,restaurant name, address,latlng to make markers array
+        // list listLocationName array
         let getlocations = res.map(marker => marker.location);
         let getAddress = getlocations.map(add => add.address);
         let getId = res.map(marker => marker.id);
@@ -88,8 +90,6 @@ class App extends React.Component {
           locationsName: listLocationName
         });
       }
-      //from the response exclude id,restaurant name, address,latlng to make markers array
-      // list listLocationName array
     });
   }
 
