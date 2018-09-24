@@ -12,11 +12,22 @@ body {
   text-align: center;
 }
 
+#LoadError {
+  position: absolute;
+  top:40%;
+  left:35%;
+  right:20%;
+  padding: 10px;
+ 
+  text-align: center;
+  color:black;
+  z-index: 1000;
+}
 .list-restaurant {
   margin: 0;
   padding-top: 5px;
   max-width: 20%;
-  border-top: 5px solid #361809;
+  border-top: 5px solid #2e1508;
 }
 
 .rest-name p {
@@ -98,9 +109,8 @@ body {
   .map {
     width: 100%;
     height: 50vh;
-    margin-bottom:0;
+    margin-bottom: 0;
   }
-
 
   .list-restaurant {
     position: relative;
@@ -110,18 +120,22 @@ body {
     max-width: 100%;
     border-top: 2px solid #361809;
     color: black;
-   
-    background-color:black}
-  .list{
+
+    background-color: black;
+  }
+  .list {
     background-color: rgba(8, 0, 0, 0.089);
   }
-.infow-window li img {
- width:200px;
- height: 100px;
- 
-}
-.infow-window li {
- margin-left: 0px;
-}
-  
+  .infow-window li img {
+    width: 200px;
+    height: 100px;
+  }
+  .infow-window li {
+    margin-left: 0px;
+  }
+
+  #LoadError{
+    left:10%;
+    right:10%;
+  }
 }

@@ -1,6 +1,9 @@
+
 import React, { Component } from "react";
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 import { InfoWindow } from "react-google-maps";
+import { GoogleMapLoader } from "react-google-maps";
+
 
 class MapContainer extends Component {
   render() {

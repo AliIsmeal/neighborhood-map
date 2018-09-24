@@ -57,31 +57,39 @@ class App extends React.Component {
 
   componentDidMount() {
     getAll().then(res => {
-      //if the response is ok 
-      if (res) {
-                 //from the response exclude id,restaurant name, address,latlng to make markers array
-                 // list listLocationName array
-                 let getlocations = res.map(marker => marker.location);
-                 let getAddress = getlocations.map(add => add.address);
-                 let getId = res.map(marker => marker.id);
-                 let getlocationsName = res.map(marker => marker.name);
-                 let markersArray = getlocations.map(latlng => ({
-                   lat: latlng.lat,
-                   lng: latlng.lng
-                 }));
-                 let listLocationName = [];
-                 for (var i = 0; i < getlocationsName.length; i++) {
-                   let locationName = { id: getId[i], name: getlocationsName[i], latlng: markersArray[i], address: getAddress[i] };
-                   listLocationName.push(locationName);
-                 }
-//set state to the new arrays formed above 
-                 this.setState({
-                   markers: markersArray,
-                   locationsName: listLocationName
-                 });
-               } else if (!res.ok) {
-        alert("Error has occured,couldn't load the data correctly");
+      //if the response is ok
+      if (res === undefined) {
+        //if Failed to fetch third party ,error message on map screen will be displayed
+        document.getElementById("LoadError").innerHTML =
+          "<h2>Error:Failed to fetch</h2>";
+      } else if (res) {
+        document.getElementById("LoadError").style.display = "none";
+        let getlocations = res.map(marker => marker.location);
+        let getAddress = getlocations.map(add => add.address);
+        let getId = res.map(marker => marker.id);
+        let getlocationsName = res.map(marker => marker.name);
+        let markersArray = getlocations.map(latlng => ({
+          lat: latlng.lat,
+          lng: latlng.lng
+        }));
+        let listLocationName = [];
+        for (var i = 0; i < getlocationsName.length; i++) {
+          let locationName = {
+            id: getId[i],
+            name: getlocationsName[i],
+            latlng: markersArray[i],
+            address: getAddress[i]
+          };
+          listLocationName.push(locationName);
+        }
+        //set state to the new arrays formed above
+        this.setState({
+          markers: markersArray,
+          locationsName: listLocationName
+        });
       }
+      //from the response exclude id,restaurant name, address,latlng to make markers array
+      // list listLocationName array
     });
   }
 
@@ -93,7 +101,7 @@ class App extends React.Component {
     let flocation = newlocations.length
       ? newlocations
       : this.state.locationsName;
-// sort locations name 
+    // sort locations name
     flocation.sort(sortBy("name"));
 
     return (
