@@ -87,6 +87,8 @@ All data API's used in the application should load asynchronously, and errors sh
 2. [How To Render A Map Component Using ‘react-google-maps’](https://medium.com/@yelstin.fernandes/render-a-map-component-using-react-google-maps-5f7fb3e418bb)
 3. [How to Write a Google Maps React Component](https://www.fullstackreact.com/articles/how-to-write-a-google-maps-react-component/)
 
+4. [Project Rubric](https://classroom.udacity.com/nanodegrees/nd001/parts/f4471fff-fffb-4281-8c09-2478625c9597/modules/0bfa38c9-2a76-48d1-8fdd-9e5f7bcdeb27/lessons/501ef38b-2d2f-4426-b32a-01d5aebf5e74/concepts/0061bf7b-fbfe-447d-9b99-367f7eacff1e)
+
 ## Dependencies
 
 1. [ReactJs](https://reactjs.org/)
