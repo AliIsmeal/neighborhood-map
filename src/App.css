@@ -84,6 +84,8 @@ body {
 .infow-window li {
   margin: 10px;
   font-size: 1em;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
 }
 
 .map {
