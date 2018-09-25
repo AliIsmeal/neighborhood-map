@@ -23,6 +23,7 @@ class ListOfPlaces extends Component {
             locationsName.map((marker, index) => (
               <li
                 arial-label={marker.name}
+                tabIndex={index}
                 key={marker.id}
                 onClick={() => {
                   showInfow(index, marker.latlng);

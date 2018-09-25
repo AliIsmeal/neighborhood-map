@@ -3,7 +3,8 @@ import MapContainer from "./Map";
 import Header from "./Header";
 import Footer from "./Footer";
 import ListOfPlaces from "./ListOfPlaces";
-import LocationsAPI, { getAll } from "./LocationsAPI";
+import LocationsAPI, { getAll,getPhoto} from "./LocationsAPI";
+
 import escapeRegExp from "escape-string-regexp";
 import sortBy from "sort-by";
 import "./index.css";
@@ -56,6 +57,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
+  
     getAll().then(res => {
       //if the response is ok
       if (res === undefined) {
@@ -68,7 +70,7 @@ class App extends React.Component {
         // list listLocationName array
         console.log(res);
         let getlocations = res.map(marker => marker.location);
-        let getAddress = getlocations.map(add => add.address);
+        let getAddress = getlocations.map(add => add.formattedAddress);
         let getId = res.map(marker => marker.id);
         let getlocationsName = res.map(marker => marker.name);
         let markersArray = getlocations.map(latlng => ({
