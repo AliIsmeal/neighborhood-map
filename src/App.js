@@ -66,6 +66,7 @@ class App extends React.Component {
         document.getElementById("LoadError").style.display = "none";
         //from the response exclude id,restaurant name, address,latlng to make markers array
         // list listLocationName array
+        console.log(res);
         let getlocations = res.map(marker => marker.location);
         let getAddress = getlocations.map(add => add.address);
         let getId = res.map(marker => marker.id);
