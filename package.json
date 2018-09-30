@@ -3,7 +3,6 @@
   "name": "neighborhood-map",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000/api.foursquare.com/v2/venues/search?ll=33.5725875,-112.1847509&intent=browse&radius=7000&query=restaurants&client_id=LA4NO2OWJ1N5M5WGWSTXSNJVPSIOKKWYAS1H4YSUYLSFXGNO&client_secret=PDTPMBJXHSFHOL41NWN5SRZ53LSXJBNQQKFRHHLO040V24IT&v=20180910",
   "dependencies": {
     "escape-string-regexp": "^1.0.5",
     "react": "^16.5.0",
@@ -18,9 +17,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
     "gh-pages": "^2.0.0"
