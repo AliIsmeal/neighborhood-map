@@ -2,7 +2,7 @@
   "name": "neighborhood-map",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://aliismeal.github.io/neighborhood-map",
+  "homepage": "http://aliismeal.github.io/neighborhood-map.io.github",
   "dependencies": {
     "escape-string-regexp": "^1.0.5",
     "react": "^16.5.0",
