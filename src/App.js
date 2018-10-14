@@ -47,13 +47,14 @@ class App extends React.Component {
       this.setState({ infowIndex: -1 });
       restaurantsList = this.state.locationsName;
     }
-
-    this.state.newlocations = restaurantsList;
+    this.setState({ newlocations : restaurantsList});
+   
     const filteredMarkers = [];
     for (let marker of this.state.newlocations) {
       filteredMarkers.push(marker);
     }
-    this.state.newMarkers = filteredMarkers;
+    this.setState({ newMarkers: filteredMarkers });
+    
   };
 
   componentDidMount() {
