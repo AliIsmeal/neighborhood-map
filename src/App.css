@@ -23,6 +23,7 @@ body {
   color: black;
   z-index: 1000;
 }
+
 .list-restaurant {
   margin: 0;
   padding-top: 5px;
@@ -49,7 +50,7 @@ body {
   padding: 10px 10px;
   width: 100%;
 
-  border: 5px solid #993300;
+  border: 5px solid #d88257;
 
   z-index: 10;
 }
@@ -75,17 +76,16 @@ body {
 .infow-window li {
   margin: 10px;
   font-size: 1em;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
 .map {
   position: relative;
-
   float: right;
   width: 80%;
   height: 100vh;
   border: 5px solid black;
-  border-left: 5px solid #993300;
+  border-left: 5px solid #183958;
 }
 
 .footer {

@@ -69,7 +69,7 @@ class App extends React.Component {
         document.getElementById("LoadError").style.display = "none";
         //from the response exclude id,restaurant name, address,latlng to make markers array
         // list listLocationName array
-        console.log(res);
+        
         let getlocations = res.map(marker => marker.location);
         let getAddress = getlocations.map(add => add.formattedAddress);
         let getId = res.map(marker => marker.id);
@@ -96,9 +96,7 @@ class App extends React.Component {
       }
     });
   }
-
-  render() {
-    const { newlocations, locationsName, query, markerCenter } = this.state;
+    selectLocation(locationsName, newlocations) {
     let fMarkers = this.state.newMarkers.length
       ? this.state.newMarkers
       : locationsName;
@@ -107,6 +105,11 @@ class App extends React.Component {
       : this.state.locationsName;
     // sort locations name
     flocation.sort(sortBy("name"));
+    return { fMarkers, flocation };
+  }
+  render() {
+    const { newlocations, locationsName, query, markerCenter } = this.state;
+    let { fMarkers, flocation } = this.selectLocation(locationsName, newlocations);
 
     return (
       <div className="App">
@@ -136,6 +139,8 @@ class App extends React.Component {
       </div>
     );
   }
+
+  
 }
 
 export default App;
