@@ -4,7 +4,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import ListOfPlaces from "./ListOfPlaces";
 import LocationsAPI, { getAll,getPhoto} from "./LocationsAPI";
-
 import escapeRegExp from "escape-string-regexp";
 import sortBy from "sort-by";
 import "./index.css";
@@ -26,13 +25,7 @@ class App extends React.Component {
 
   //this meathod receives index and latlng object from ListOfPlaces component when marker is clicked
   //to open information window about the restaurant and change the center of the map to clicked marker
-  showInfow = (index, latlng) => {
-    this.setState({
-      infowIndex: index,
-      markerCenter: latlng
-    });
-  };
-
+  
   //filtering the list of restaurants based on the query from ListOfPlaces component
   //when the user enter the restaurant name in the search input
   filter = query => {
@@ -42,23 +35,22 @@ class App extends React.Component {
       const match = new RegExp(escapeRegExp(query), "i");
       restaurantsList = this.state.locationsName.filter(location =>
         match.test(location.name)
-      );
-    } else {
+        );
+      } else {
       this.setState({ infowIndex: -1 });
       restaurantsList = this.state.locationsName;
     }
-    this.setState({ newlocations : restaurantsList});
-   
+
+    this.setState({newlocations:restaurantsList});
     const filteredMarkers = [];
     for (let marker of this.state.newlocations) {
       filteredMarkers.push(marker);
     }
-    this.setState({ newMarkers: filteredMarkers });
-    
+    this.setState({newMarkers:filteredMarkers});
   };
-
-  componentDidMount() {
   
+  componentDidMount() {
+    
     getAll().then(res => {
       //if the response is ok
       if (res === undefined) {
@@ -69,7 +61,7 @@ class App extends React.Component {
         document.getElementById("LoadError").style.display = "none";
         //from the response exclude id,restaurant name, address,latlng to make markers array
         // list listLocationName array
-        
+        console.log(res);
         let getlocations = res.map(marker => marker.location);
         let getAddress = getlocations.map(add => add.formattedAddress);
         let getId = res.map(marker => marker.id);
@@ -96,7 +88,15 @@ class App extends React.Component {
       }
     });
   }
-    selectLocation(locationsName, newlocations) {
+  
+  showInfow = (index, latlng) => {
+    this.setState({
+      infowIndex: index,
+      markerCenter: latlng
+    });
+  };
+  render() {
+    const { newlocations, locationsName, query, markerCenter } = this.state;
     let fMarkers = this.state.newMarkers.length
       ? this.state.newMarkers
       : locationsName;
@@ -105,11 +105,6 @@ class App extends React.Component {
       : this.state.locationsName;
     // sort locations name
     flocation.sort(sortBy("name"));
-    return { fMarkers, flocation };
-  }
-  render() {
-    const { newlocations, locationsName, query, markerCenter } = this.state;
-    let { fMarkers, flocation } = this.selectLocation(locationsName, newlocations);
 
     return (
       <div className="App">
@@ -139,8 +134,6 @@ class App extends React.Component {
       </div>
     );
   }
-
-  
 }
 
 export default App;

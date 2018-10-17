@@ -2,9 +2,10 @@
   "name": "neighborhood-map",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://aliismeal.github.io/neighborhood-map",
+  "homepage": "http://aliismeal.github.io/neighborhood-map.io.github",
   "dependencies": {
     "escape-string-regexp": "^1.0.5",
+    "eslint-config-defaults": "^9.0.0",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
     "react-google-maps": "^9.4.5",
