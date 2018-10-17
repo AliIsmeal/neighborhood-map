@@ -4,7 +4,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import ListOfPlaces from "./ListOfPlaces";
 import LocationsAPI, { getAll,getPhoto} from "./LocationsAPI";
-
 import escapeRegExp from "escape-string-regexp";
 import sortBy from "sort-by";
 import "./index.css";
