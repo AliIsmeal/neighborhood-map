@@ -4,6 +4,11 @@ import { InfoWindow } from "react-google-maps";
 import withScriptjs from "react-google-maps/lib/withScriptjs";
 
 class MapContainer extends Component {
+  constructor(props) {
+    super(props);
+    console.log("im called");
+  }
+
   render() {
     const { markers, showInfow, markerCenter, infowIndex } = this.props;
     const MapContainer = withScriptjs(

@@ -3,7 +3,7 @@ import MapContainer from "./Map";
 import Header from "./Header";
 import Footer from "./Footer";
 import ListOfPlaces from "./ListOfPlaces";
-import LocationsAPI, { getAll,getPhoto} from "./LocationsAPI";
+import LocationsAPI, { getAll, getPhoto } from "./LocationsAPI";
 
 import escapeRegExp from "escape-string-regexp";
 import sortBy from "sort-by";
@@ -26,6 +26,10 @@ class App extends React.Component {
 
   //this meathod receives index and latlng object from ListOfPlaces component when marker is clicked
   //to open information window about the restaurant and change the center of the map to clicked marker
+  componentDidMount() {
+    this.getData();
+  }
+
   showInfow = (index, latlng) => {
     this.setState({
       infowIndex: index,
@@ -45,31 +49,30 @@ class App extends React.Component {
       );
     } else {
       this.setState({ infowIndex: -1 });
+
       restaurantsList = this.state.locationsName;
     }
-    this.setState({ newlocations : restaurantsList});
-   
+    this.setState({ newlocations: restaurantsList });
+
     const filteredMarkers = [];
     for (let marker of this.state.newlocations) {
       filteredMarkers.push(marker);
     }
     this.setState({ newMarkers: filteredMarkers });
-    
   };
 
-  componentDidMount() {
-  
+  getData = () => {
     getAll().then(res => {
       //if the response is ok
       if (res === undefined) {
         //if Failed to fetch third party ,error message on map screen will be displayed
         document.getElementById("LoadError").innerHTML =
-        "<h2>Error:Failed to fetch</h2>";
+          "<h2>Error:Failed to fetch</h2>";
       } else if (res) {
         document.getElementById("LoadError").style.display = "none";
         //from the response exclude id,restaurant name, address,latlng to make markers array
         // list listLocationName array
-        
+
         let getlocations = res.map(marker => marker.location);
         let getAddress = getlocations.map(add => add.formattedAddress);
         let getId = res.map(marker => marker.id);
@@ -95,8 +98,9 @@ class App extends React.Component {
         });
       }
     });
-  }
-    selectLocation(locationsName, newlocations) {
+  };
+
+  selectLocation(locationsName, newlocations) {
     let fMarkers = this.state.newMarkers.length
       ? this.state.newMarkers
       : locationsName;
@@ -107,9 +111,15 @@ class App extends React.Component {
     flocation.sort(sortBy("name"));
     return { fMarkers, flocation };
   }
+
   render() {
+    const mod = this.state;
+    console.log(mod);
     const { newlocations, locationsName, query, markerCenter } = this.state;
-    let { fMarkers, flocation } = this.selectLocation(locationsName, newlocations);
+    let { fMarkers, flocation } = this.selectLocation(
+      locationsName,
+      newlocations
+    );
 
     return (
       <div className="App">
@@ -139,8 +149,6 @@ class App extends React.Component {
       </div>
     );
   }
-
-  
 }
 
 export default App;
