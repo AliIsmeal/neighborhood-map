@@ -1,15 +1,21 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   background-color: #160b06;
 }
 
 .header {
   overflow: hidden;
-  background: linear-gradient(to bottom, #2f62af 0%, #d69744 100%);
+  background-color: #226985;
+  color: white;
   padding: 5px 5px;
   text-align: center;
+}
+
+.header h2 {
+  text-shadow: 4px 3px black;
 }
 
 #LoadError {
@@ -25,10 +31,12 @@ body {
 }
 
 .list-restaurant {
+  position: absolute;
+  top: 50px;
+  z-index: 100;
   margin: 0;
   padding-top: 5px;
   max-width: 20%;
-  border-top: 5px solid #2e1508;
 }
 
 .rest-name p {
@@ -42,9 +50,6 @@ body {
   color: #993300;
 }
 
-.search {
-  margin: 10px;
-}
 .search-locations {
   position: relative;
   padding: 10px 10px;
@@ -52,22 +57,21 @@ body {
 
   border: 5px solid #d88257;
 
-  z-index: 10;
+  z-index: 300;
 }
 
 .list {
+  overflow-y: auto;
   list-style-type: none;
-  margin: 0;
-  background-color: black;
   padding: 0;
-  height: 100%;
+  height: 100vh;
 }
 
 .list li {
   /* padding: 1px 5px; */
   cursor: pointer;
-
-  border: 1px solid #160b06;
+  background-color: #226985;
+  border: 1px solid #071347;
 }
 
 .infow-window {
@@ -76,27 +80,31 @@ body {
 .infow-window li {
   margin: 10px;
   font-size: 1em;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #226985;
 }
 
 .map {
   position: relative;
   float: right;
-  width: 80%;
+  width: 100%;
   height: 100vh;
   border: 5px solid black;
-  border-left: 5px solid #183958;
 }
 
 .footer {
+  position: relative;
   display: flex;
   flex-direction: column;
   left: 0;
   bottom: 0;
+  margin-bottom: 0;
   width: 100%;
-  background: linear-gradient(to bottom, #2f62af 0%, #d69744 100%);
-  color: white;
+  padding: 20px;
+  background: #a8aaac;
+  color: #000;
   text-align: center;
+  z-index: 200;
 }
 
 @media only screen and (max-width: 800px) {
@@ -112,29 +120,29 @@ body {
   }
 
   .map {
-    width: 100%;
-    height: 50vh;
+    width: 60%;
+    height: 100vh;
     margin-bottom: 0;
   }
 
-  .list-restaurant {
-    position: relative;
-    /* top: 80px; */
-    z-index: 20;
-    margin: 0;
-    max-width: 100%;
-    border-top: 2px solid #361809;
-    color: black;
+  .input-group {
+    display: relative;
+    top: 18px;
+    z-index: 3000;
+  }
 
-    background-color: black;
+  .list-restaurant {
+    /* position: relative; */
+    margin: 0;
+    max-width: 40%;
+
+    color: black;
   }
+
   .list {
-    background-color: rgba(8, 0, 0, 0.089);
+    margin-top: 20px;
   }
-  .infow-window li img {
-    width: 200px;
-    height: 100px;
-  }
+
   .infow-window li {
     margin-left: 0px;
   }
@@ -142,5 +150,13 @@ body {
   #LoadError {
     left: 10%;
     right: 10%;
+  }
+
+  .header {
+    padding: 15px 20px;
+  }
+
+  .footer {
+    padding: 15px;
   }
 }

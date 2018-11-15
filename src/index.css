@@ -9,10 +9,10 @@ body {
 #map {
   height: 100%;
 }
+.card {
+  z-index: 2000;
+}
 
 #state {
   width: 200px;
 }
-
-
-

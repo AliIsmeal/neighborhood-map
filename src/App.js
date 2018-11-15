@@ -3,7 +3,7 @@ import MapContainer from "./Map";
 import Header from "./Header";
 import Footer from "./Footer";
 import ListOfPlaces from "./ListOfPlaces";
-import LocationsAPI, { getAll, getPhoto } from "./LocationsAPI";
+import LocationsAPI, { getAll } from "./LocationsAPI";
 
 import escapeRegExp from "escape-string-regexp";
 import sortBy from "sort-by";
@@ -30,11 +30,54 @@ class App extends React.Component {
     this.getData();
   }
 
-  showInfow = (index, latlng) => {
+  getData = () => {
+    getAll().then(res => {
+      console.log(res);
+      //if the response is ok
+      if (res === undefined) {
+        //if Failed to fetch third party ,error message on map screen will be displayed
+        document.getElementById("LoadError").innerHTML =
+          "<h2>Error:Failed to fetch</h2>";
+      } else if (res) {
+        document.getElementById("LoadError").style.display = "none";
+        //from the response exclude id,restaurant name, address,latlng to make markers array
+        // list listLocationName array
+        // console.log(res, "test");
+
+        let getlocations = res.map(marker => marker.location);
+
+        let getAddress = getlocations.map(add => add.formattedAddress);
+        let getId = res.map(marker => marker.id);
+        let getlocationsName = res.map(marker => marker.name);
+        let markersArray = getlocations.map(latlng => ({
+          lat: latlng.lat,
+          lng: latlng.lng
+        }));
+        let listLocationName = [];
+        for (let i = 0; i < getlocationsName.length; i++) {
+          let locationName = {
+            id: getId[i],
+            name: getlocationsName[i],
+            latlng: markersArray[i],
+            address: getAddress[i]
+          };
+          listLocationName.push(locationName);
+        }
+
+        //set state to the new arrays formed above
+        this.setState({
+          markers: markersArray,
+          locationsName: listLocationName
+        });
+      }
+    });
+  };
+
+  showInfow = (index,newCenter) => {
     this.setState({
       infowIndex: index,
-      markerCenter: latlng
-    });
+      markerCenter:newCenter
+        });
   };
 
   //filtering the list of restaurants based on the query from ListOfPlaces component
@@ -61,45 +104,6 @@ class App extends React.Component {
     this.setState({ newMarkers: filteredMarkers });
   };
 
-  getData = () => {
-    getAll().then(res => {
-      //if the response is ok
-      if (res === undefined) {
-        //if Failed to fetch third party ,error message on map screen will be displayed
-        document.getElementById("LoadError").innerHTML =
-          "<h2>Error:Failed to fetch</h2>";
-      } else if (res) {
-        document.getElementById("LoadError").style.display = "none";
-        //from the response exclude id,restaurant name, address,latlng to make markers array
-        // list listLocationName array
-
-        let getlocations = res.map(marker => marker.location);
-        let getAddress = getlocations.map(add => add.formattedAddress);
-        let getId = res.map(marker => marker.id);
-        let getlocationsName = res.map(marker => marker.name);
-        let markersArray = getlocations.map(latlng => ({
-          lat: latlng.lat,
-          lng: latlng.lng
-        }));
-        let listLocationName = [];
-        for (var i = 0; i < getlocationsName.length; i++) {
-          let locationName = {
-            id: getId[i],
-            name: getlocationsName[i],
-            latlng: markersArray[i],
-            address: getAddress[i]
-          };
-          listLocationName.push(locationName);
-        }
-        //set state to the new arrays formed above
-        this.setState({
-          markers: markersArray,
-          locationsName: listLocationName
-        });
-      }
-    });
-  };
-
   selectLocation(locationsName, newlocations) {
     let fMarkers = this.state.newMarkers.length
       ? this.state.newMarkers
@@ -113,8 +117,6 @@ class App extends React.Component {
   }
 
   render() {
-    const mod = this.state;
-    console.log(mod);
     const { newlocations, locationsName, query, markerCenter } = this.state;
     let { fMarkers, flocation } = this.selectLocation(
       locationsName,
